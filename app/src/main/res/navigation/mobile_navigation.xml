@@ -15,11 +15,31 @@
         android:id="@+id/navigation_dashboard"
         android:name="com.castor.threecommas.test_di.ui.dashboard.DashboardFragment"
         android:label="@string/title_dashboard"
-        tools:layout="@layout/fragment_dashboard" />
+        tools:layout="@layout/fragment_dashboard">
+        <action
+            android:id="@+id/to_dashboard_details"
+            app:destination="@id/navigation_dashboard_details" />
+    </fragment>
 
     <fragment
         android:id="@+id/navigation_notifications"
         android:name="com.castor.threecommas.test_di.ui.notifications.NotificationsFragment"
         android:label="@string/title_notifications"
         tools:layout="@layout/fragment_notifications" />
+
+    <fragment
+        android:id="@+id/navigation_dashboard_details"
+        android:name="com.castor.threecommas.test_di.ui.dashboard.details.DashboardDetailsFragment"
+        android:label="@string/title_dashboard_details"
+        tools:layout="@layout/fragment_dashboard_details" >
+        <action
+            android:id="@+id/to_dashboard_analytics"
+            app:destination="@id/navigation_dashboard_analytics" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/navigation_dashboard_analytics"
+        android:name="com.castor.threecommas.test_di.ui.dashboard.details.DashboardAnalyticsFragment"
+        android:label="@string/title_dashboard_analytics"
+        tools:layout="@layout/fragment_dashboard_analytics" />
 </navigation>

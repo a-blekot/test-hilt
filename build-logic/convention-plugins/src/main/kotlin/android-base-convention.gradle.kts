@@ -26,13 +26,11 @@ configure<BaseExtension> {
         maybeCreate("debug").apply {
             isDebuggable = true
             isMinifyEnabled = false
-            isShrinkResources = false
         }
 
         maybeCreate("release").apply {
             isDebuggable = false
             isMinifyEnabled = true
-            isShrinkResources = true
             consumerProguardFile("proguard-rules.pro")
             proguardFiles(
                 getDefaultProguardFile("proguard-android-optimize.txt"),

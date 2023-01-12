@@ -1,5 +1,6 @@
 plugins {
     id("android-application-convention")
+    id("androidx.navigation.safeargs.kotlin")
     id("com.google.dagger.hilt.android")
     kotlin("kapt")
 }
@@ -13,9 +14,18 @@ hilt {
 }
 
 dependencies {
+    implementation(projects.core.utils)
+    implementation(projects.core.analytics.impl)
+    implementation(projects.feature.dashboard.details)
+
     implementation(libs.bundles.app)
     implementation(libs.dagger.hilt.android)
+//    implementation(libs.hilt.navigation.compose)
+//    implementation(libs.hilt.navigation.fragment)
+//    implementation(libs.hilt.lifecycle.viewmodel)
+
     kapt(libs.dagger.hilt.compiler)
+//    kapt(libs.hilt.compiler)
 
 //    hilt-compiler = { module = "androidx.hilt:hilt-compile", version.ref = "hilt" }
 //    hilt-navigation-compose = { module = "androidx.hilt:hilt-navigation-compose", version.ref = "hilt" }

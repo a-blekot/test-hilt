@@ -16,6 +16,10 @@ dependencyResolutionManagement {
 
 include(
     ":app",
+    ":core:analytics:api",
+    ":core:analytics:impl",
+    ":core:utils",
+    ":feature:dashboard:details",
 )
 
 rootProject.name = "test-di"

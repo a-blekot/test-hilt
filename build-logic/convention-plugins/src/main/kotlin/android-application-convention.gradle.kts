@@ -12,6 +12,16 @@ android {
         applicationId = APPLICATION_ID
     }
 
+    buildTypes {
+        debug {
+            isShrinkResources = false
+        }
+
+        release {
+            isShrinkResources = true
+        }
+    }
+
     buildFeatures {
         viewBinding = true
     }

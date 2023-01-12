@@ -4,3 +4,7 @@ plugins {
     id("kotlin-base-convention")
     id("android-base-convention")
 }
+
+dependencies {
+    implementation("javax.inject:javax.inject:1")
+}
