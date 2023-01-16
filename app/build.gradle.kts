@@ -17,12 +17,12 @@ dependencies {
     implementation(projects.core.utils)
     implementation(projects.core.analytics.impl)
     implementation(projects.feature.dashboard.details)
+    implementation(projects.feature.login)
 
     implementation(libs.bundles.app)
     implementation(libs.dagger.hilt.android)
 //    implementation(libs.hilt.navigation.compose)
-//    implementation(libs.hilt.navigation.fragment)
-//    implementation(libs.hilt.lifecycle.viewmodel)
+    implementation(libs.hilt.navigation.fragment)
 
     kapt(libs.dagger.hilt.compiler)
 //    kapt(libs.hilt.compiler)

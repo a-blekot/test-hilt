@@ -5,16 +5,21 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
-import androidx.fragment.app.activityViewModels
-import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
+import androidx.navigation.navGraphViewModels
+import com.castor.threecommas.test_di.R
 import com.castor.threecommas.test_di.databinding.FragmentDashboardDetailsBinding
+import com.castor.threecommas.test_di.ui.dashboard.details.DashboardDetailsFragmentDirections.Companion.toDashboardAnalytics
+import com.castor.threecommas.test_di.ui.dashboard.details.DashboardDetailsFragmentDirections.Companion.toLogin
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
 class DashboardDetailsFragment : Fragment() {
 
-    private val viewModel: DashboardDetailsViewModel by viewModels()
+    private val viewModelShared: DashboardDetailsViewModel by navGraphViewModels(R.id.root_navigation_graph) {
+        defaultViewModelProviderFactory
+    }//{ requireParentFragment() }
+
     private var _binding: FragmentDashboardDetailsBinding? = null
     private val binding get() = _binding!!
 
@@ -27,10 +32,16 @@ class DashboardDetailsFragment : Fragment() {
         }.root
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        binding.dashboardDetailsRepoInfo.text = viewModel.text
+        binding.run {
+            dashboardDetailsRepoInfo.text = viewModelShared.text
 
-        binding.dashboardDetailsButton.setOnClickListener {
-            findNavController().navigate(DashboardDetailsFragmentDirections.toDashboardAnalytics())
+            dashboardDetailsButton.setOnClickListener {
+                findNavController().navigate(toDashboardAnalytics())
+            }
+
+            dashboardDetailsLogin.setOnClickListener {
+                findNavController().navigate(toLogin())
+            }
         }
     }
 

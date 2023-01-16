@@ -18,8 +18,10 @@ include(
     ":app",
     ":core:analytics:api",
     ":core:analytics:impl",
+    ":core:di",
     ":core:utils",
     ":feature:dashboard:details",
+    ":feature:login",
 )
 
 rootProject.name = "test-di"

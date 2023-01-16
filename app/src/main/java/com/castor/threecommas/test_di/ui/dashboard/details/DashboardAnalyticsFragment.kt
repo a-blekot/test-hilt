@@ -7,14 +7,23 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.activityViewModels
 import androidx.fragment.app.viewModels
+import androidx.navigation.navGraphViewModels
+import com.castor.threecommas.test_di.R
 import com.castor.threecommas.test_di.databinding.FragmentDashboardAnalyticsBinding
+import com.castor.threecommas.test_di.feature.dashboard.details.DashboardDetailsRepository
 import dagger.hilt.android.AndroidEntryPoint
+import javax.inject.Inject
 
 @AndroidEntryPoint
 class DashboardAnalyticsFragment : Fragment() {
 
+//    @Inject
+//    lateinit var repo: DashboardDetailsRepository
+
     private val viewModel: DashboardAnalyticsViewModel by activityViewModels()
-    private val viewModelShared: DashboardDetailsViewModel by viewModels()//{ requireParentFragment() }
+    private val viewModelShared: DashboardDetailsViewModel by navGraphViewModels(R.id.root_navigation_graph) {
+        defaultViewModelProviderFactory
+    }//{ requireParentFragment() }
     private var _binding: FragmentDashboardAnalyticsBinding? = null
     private val binding get() = _binding!!
 

@@ -2,8 +2,10 @@
 <navigation xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/mobile_navigation"
+    android:id="@+id/root_navigation_graph"
     app:startDestination="@+id/navigation_home">
+
+    <include app:graph="@navigation/login_navigation" />
 
     <fragment
         android:id="@+id/navigation_home"
@@ -35,6 +37,9 @@
         <action
             android:id="@+id/to_dashboard_analytics"
             app:destination="@id/navigation_dashboard_analytics" />
+        <action
+            android:id="@+id/to_login"
+            app:destination="@id/login_navigation_graph" />
     </fragment>
 
     <fragment

@@ -5,6 +5,12 @@ plugins {
     id("android-base-convention")
 }
 
+android {
+    buildFeatures {
+        viewBinding = true
+    }
+}
+
 dependencies {
     implementation("javax.inject:javax.inject:1")
 }

@@ -13,6 +13,14 @@
         android:layout_marginTop="30dp"
         android:text="@string/title_dashboard_analytics" />
 
+    <Button
+        android:id="@+id/dashboard_details_login"
+        android:layout_gravity="top|center_horizontal"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="130dp"
+        android:text="@string/login_title" />
+
     <TextView
         android:id="@+id/dashboard_details_title"
         android:layout_width="wrap_content"

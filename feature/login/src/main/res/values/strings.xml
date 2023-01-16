@@ -1,0 +1,5 @@
+<resources>
+    <string name="login_title">Login</string>
+    <string name="login_name">Login Name</string>
+    <string name="login_password">Login Password</string>
+</resources>
