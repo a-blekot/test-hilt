@@ -17,7 +17,7 @@
 
     <fragment
         android:id="@+id/navigation_login_name"
-        android:name="com.castor.threecommas.test_di.feature.login.LoginNameFragment"
+        android:name="com.castor.threecommas.test_di.feature.login.name.LoginNameFragment"
         android:label="@string/login_name"
         tools:layout="@layout/fragment_login_name">
         <action
@@ -27,7 +27,7 @@
 
     <fragment
         android:id="@+id/navigation_login_password"
-        android:name="com.castor.threecommas.test_di.feature.login.LoginPasswordFragment"
+        android:name="com.castor.threecommas.test_di.feature.login.password.LoginPasswordFragment"
         android:label="@string/login_password"
         tools:layout="@layout/fragment_login_password" />
 

@@ -1,4 +1,4 @@
-package com.castor.threecommas.test_di.feature.login
+package com.castor.threecommas.test_di.feature.login.di
 
 import com.castor.threecommas.test_di.core.di.FeatureScope
 import dagger.Module

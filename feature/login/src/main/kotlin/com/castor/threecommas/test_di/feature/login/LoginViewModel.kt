@@ -2,6 +2,8 @@ package com.castor.threecommas.test_di.feature.login
 
 import androidx.lifecycle.ViewModel
 import com.castor.threecommas.test_di.core.utils.Calculator
+import com.castor.threecommas.test_di.feature.login.di.LoginModuleInterface
+import com.castor.threecommas.test_di.feature.login.di.LoginRepository
 import dagger.assisted.AssistedFactory
 import dagger.assisted.AssistedInject
 

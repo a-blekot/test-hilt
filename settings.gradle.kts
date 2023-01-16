@@ -20,7 +20,7 @@ include(
     ":core:analytics:impl",
     ":core:di",
     ":core:utils",
-    ":feature:dashboard:details",
+    //":feature:dashboard:details",
     ":feature:login",
 )
 

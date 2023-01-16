@@ -18,7 +18,7 @@ class DashboardDetailsFragment : Fragment() {
 
     private val viewModelShared: DashboardDetailsViewModel by navGraphViewModels(R.id.root_navigation_graph) {
         defaultViewModelProviderFactory
-    }//{ requireParentFragment() }
+    }
 
     private var _binding: FragmentDashboardDetailsBinding? = null
     private val binding get() = _binding!!

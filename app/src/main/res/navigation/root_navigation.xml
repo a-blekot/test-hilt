@@ -44,7 +44,7 @@
 
     <fragment
         android:id="@+id/navigation_dashboard_analytics"
-        android:name="com.castor.threecommas.test_di.ui.dashboard.details.DashboardAnalyticsFragment"
+        android:name="com.castor.threecommas.test_di.ui.dashboard.analytics.DashboardAnalyticsFragment"
         android:label="@string/title_dashboard_analytics"
         tools:layout="@layout/fragment_dashboard_analytics" />
 </navigation>

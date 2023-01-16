@@ -1,7 +1,10 @@
-package com.castor.threecommas.test_di.feature.login
+package com.castor.threecommas.test_di.feature.login.name
 
 import androidx.lifecycle.ViewModel
 import com.castor.threecommas.test_di.core.utils.Calculator
+import com.castor.threecommas.test_di.feature.login.di.LoginModuleInterface
+import com.castor.threecommas.test_di.feature.login.di.LoginRepository
+import com.castor.threecommas.test_di.feature.login.address
 import javax.inject.Inject
 
 class LoginNameViewModel @Inject constructor(

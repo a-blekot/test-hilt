@@ -3,7 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.dashboard.details.DashboardAnalyticsFragment">
+    tools:context=".ui.dashboard.analytics.DashboardAnalyticsFragment">
 
     <TextView
         android:id="@+id/dashboard_analytics_title"

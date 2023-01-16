@@ -1,4 +1,4 @@
-package com.castor.threecommas.test_di.feature.login
+package com.castor.threecommas.test_di.feature.login.name
 
 import android.os.Bundle
 import android.util.Log
@@ -6,11 +6,19 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import com.castor.threecommas.test_di.core.di.navGraphVM
-import com.castor.threecommas.test_di.feature.login.databinding.FragmentLoginPasswordBinding
+import androidx.fragment.app.viewModels
+import androidx.navigation.fragment.findNavController
+import com.castor.threecommas.test_di.core.di.Factory
+import com.castor.threecommas.test_di.feature.login.di.LoginComponentHolder
+import com.castor.threecommas.test_di.feature.login.di.LoginModuleInterface
+import com.castor.threecommas.test_di.feature.login.name.LoginNameFragmentDirections.Companion.toPassword
+import com.castor.threecommas.test_di.feature.login.di.LoginRepository
+import com.castor.threecommas.test_di.feature.login.address
+import com.castor.threecommas.test_di.feature.login.databinding.FragmentLoginNameBinding
 import javax.inject.Inject
 
-class LoginPasswordFragment : Fragment() {
+
+class LoginNameFragment : Fragment() {
 
     @Inject
     lateinit var loginModuleInterface: LoginModuleInterface
@@ -18,10 +26,11 @@ class LoginPasswordFragment : Fragment() {
     @Inject
     lateinit var loginRepository: LoginRepository
 
-    private var _binding: FragmentLoginPasswordBinding? = null
+    private var _binding: FragmentLoginNameBinding? = null
     private val binding get() = _binding!!
-    private val viewModel: LoginViewModel by navGraphVM(R.id.login_navigation_graph) {
-        LoginComponentHolder.component!!.loginViewModelFactory().create()
+
+    private val viewModel: LoginNameViewModel by viewModels {
+        Factory { LoginComponentHolder.component!!.loginNameViewModel() }
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -33,12 +42,17 @@ class LoginPasswordFragment : Fragment() {
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
-    ) = FragmentLoginPasswordBinding.inflate(inflater, container, false)
+    ) = FragmentLoginNameBinding.inflate(inflater, container, false)
         .also { _binding = it }.root
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        binding.loginPasswordText.text = superText
-        Log.d("VVV", "LoginPasswordFragment viewModel.superText = \n${viewModel.superText}")
+        binding.run {
+            loginNameText.text = superText
+            Log.d("VVV", "LoginNameFragment viewModel.superText = \n${viewModel.superText}")
+            fragmentLoginNameButton.setOnClickListener {
+                findNavController().navigate(toPassword())
+            }
+        }
     }
 
     private val superText: String

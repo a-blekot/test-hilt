@@ -11,6 +11,9 @@ import com.castor.threecommas.test_di.core.di.FeatureScope
 import com.castor.threecommas.test_di.core.di.navGraphVM
 import com.castor.threecommas.test_di.feature.login.LoginFragmentDirections.Companion.toName
 import com.castor.threecommas.test_di.feature.login.databinding.FragmentLoginBinding
+import com.castor.threecommas.test_di.feature.login.di.LoginComponentHolder
+import com.castor.threecommas.test_di.feature.login.di.LoginModuleInterface
+import com.castor.threecommas.test_di.feature.login.di.LoginRepository
 import javax.inject.Inject
 
 @FeatureScope

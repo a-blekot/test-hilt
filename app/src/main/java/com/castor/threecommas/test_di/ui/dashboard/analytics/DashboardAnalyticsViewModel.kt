@@ -1,4 +1,4 @@
-package com.castor.threecommas.test_di.ui.dashboard.details
+package com.castor.threecommas.test_di.ui.dashboard.analytics
 
 import androidx.lifecycle.ViewModel
 import dagger.hilt.android.lifecycle.HiltViewModel
