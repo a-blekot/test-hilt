@@ -6,13 +6,11 @@ import com.castor.threecommas.test_di.feature.login.di.LoginModuleInterface
 import com.castor.threecommas.test_di.feature.login.di.LoginRepository
 import dagger.assisted.AssistedFactory
 import dagger.assisted.AssistedInject
+import javax.inject.Inject
 
-class LoginViewModel @AssistedInject constructor(
-//    @Assisted savedStateHandle: SavedStateHandle,
+class LoginViewModel @Inject constructor(
     var loginModuleInterface: LoginModuleInterface,
     var loginRepository: LoginRepository,
-    var calculator: Calculator
-
 ) : ViewModel() {
 
     val superText: String
@@ -26,10 +24,4 @@ class LoginViewModel @AssistedInject constructor(
             sb.append("\nanalyticsService ${loginRepository.analyticsService.address}")
             return sb.toString()
         }
-
-    @AssistedFactory
-    interface Factory {
-//        fun create(savedStateHandle: SavedStateHandle): LoginViewModel
-        fun create(): LoginViewModel
-    }
 }

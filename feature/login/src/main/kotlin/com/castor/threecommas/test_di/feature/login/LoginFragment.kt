@@ -7,8 +7,9 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
+import androidx.navigation.navGraphViewModels
+import com.castor.threecommas.test_di.core.di.Factory
 import com.castor.threecommas.test_di.core.di.FeatureScope
-import com.castor.threecommas.test_di.core.di.navGraphVM
 import com.castor.threecommas.test_di.feature.login.LoginFragmentDirections.Companion.toName
 import com.castor.threecommas.test_di.feature.login.databinding.FragmentLoginBinding
 import com.castor.threecommas.test_di.feature.login.di.LoginComponentHolder
@@ -20,10 +21,10 @@ import javax.inject.Inject
 class LoginFragment : Fragment() {
 
     @Inject
-    lateinit var loginModuleInterface: LoginModuleInterface
+    lateinit var loginRepository: LoginRepository
 
     @Inject
-    lateinit var loginRepository: LoginRepository
+    lateinit var loginModuleInterface: LoginModuleInterface
 
     private var _binding: FragmentLoginBinding? = null
     private val binding get() = _binding!!
@@ -32,8 +33,9 @@ class LoginFragment : Fragment() {
 //    private val viewModel: LoginViewModel by viewModels {
 //        LoginComponentHolder.component!!.viewModelFactory().create()
 //    }
-    private val viewModel: LoginViewModel by navGraphVM(R.id.login_navigation_graph) {
-        LoginComponentHolder.component!!.loginViewModelFactory().create()
+
+    private val viewModel: LoginViewModel by navGraphViewModels(R.id.login_navigation_graph) {
+        Factory { LoginComponentHolder.component!!.loginViewModel() }
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {

@@ -17,7 +17,7 @@ interface LoginComponent {
     fun inject(fragment: LoginNameFragment)
     fun inject(fragment: LoginPasswordFragment)
 
-    fun loginViewModelFactory(): LoginViewModel.Factory
+    fun loginViewModel(): LoginViewModel
     fun loginNameViewModel(): LoginNameViewModel
 
 //    @Subcomponent.Builder

@@ -6,7 +6,9 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import com.castor.threecommas.test_di.core.di.navGraphVM
+import androidx.navigation.navGraphViewModels
+import com.castor.threecommas.test_di.core.di.Factory
+import com.castor.threecommas.test_di.core.di.FeatureScope
 import com.castor.threecommas.test_di.feature.login.*
 import com.castor.threecommas.test_di.feature.login.databinding.FragmentLoginPasswordBinding
 import com.castor.threecommas.test_di.feature.login.di.LoginComponentHolder
@@ -14,6 +16,7 @@ import com.castor.threecommas.test_di.feature.login.di.LoginModuleInterface
 import com.castor.threecommas.test_di.feature.login.di.LoginRepository
 import javax.inject.Inject
 
+@FeatureScope
 class LoginPasswordFragment : Fragment() {
 
     @Inject
@@ -25,8 +28,8 @@ class LoginPasswordFragment : Fragment() {
     private var _binding: FragmentLoginPasswordBinding? = null
     private val binding get() = _binding!!
 
-    private val viewModel: LoginViewModel by navGraphVM(R.id.login_navigation_graph) {
-        LoginComponentHolder.component!!.loginViewModelFactory().create()
+    private val viewModel: LoginViewModel by navGraphViewModels(R.id.login_navigation_graph) {
+        Factory { LoginComponentHolder.component!!.loginViewModel() }
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {

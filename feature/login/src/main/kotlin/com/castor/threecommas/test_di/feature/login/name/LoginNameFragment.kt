@@ -9,6 +9,7 @@ import android.view.ViewGroup
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import com.castor.threecommas.test_di.core.di.Factory
+import com.castor.threecommas.test_di.core.di.FeatureScope
 import com.castor.threecommas.test_di.feature.login.di.LoginComponentHolder
 import com.castor.threecommas.test_di.feature.login.di.LoginModuleInterface
 import com.castor.threecommas.test_di.feature.login.name.LoginNameFragmentDirections.Companion.toPassword
@@ -17,7 +18,7 @@ import com.castor.threecommas.test_di.feature.login.address
 import com.castor.threecommas.test_di.feature.login.databinding.FragmentLoginNameBinding
 import javax.inject.Inject
 
-
+@FeatureScope
 class LoginNameFragment : Fragment() {
 
     @Inject

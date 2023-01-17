@@ -6,7 +6,9 @@ import com.castor.threecommas.test_di.feature.login.LoginFragment
 import com.castor.threecommas.test_di.feature.login.name.LoginNameFragment
 import com.castor.threecommas.test_di.feature.login.password.LoginPasswordFragment
 import dagger.hilt.android.EntryPointAccessors
+import javax.inject.Singleton
 
+@Singleton
 object LoginComponentHolder : ComponentHolder {
 
     var component: LoginComponent? = null
