@@ -8,16 +8,14 @@ import com.castor.threecommas.test_di.feature.login.name.LoginNameFragment
 import com.castor.threecommas.test_di.feature.login.name.LoginNameViewModel
 import com.castor.threecommas.test_di.feature.login.password.LoginPasswordFragment
 import dagger.Component
-import dagger.Subcomponent
 import javax.inject.Inject
 
-@Component(dependencies = [LoginEntryPoint::class])
+@FeatureScope
+@Component(
+    dependencies = [LoginEntryPoint::class],
+    modules = [LoginModule::class]
+)
 interface LoginComponent {
-    fun subComponent(): LoginSubComponent
-}
-
-@[Subcomponent(modules = [LoginModule::class]) FeatureScope]
-interface LoginSubComponent {
     fun inject(fragment: LoginFragment)
     fun inject(fragment: LoginNameFragment)
     fun inject(fragment: LoginPasswordFragment)

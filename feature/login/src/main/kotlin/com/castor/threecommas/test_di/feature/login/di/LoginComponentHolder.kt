@@ -14,27 +14,23 @@ object LoginComponentHolder : ComponentHolder {
     var component: LoginComponent? = null
         private set
 
-    var subComponent: LoginSubComponent? = null
-        private set
-
     override fun reset() {
         component = null
-        subComponent = null
     }
 
     fun inject(fragment: LoginFragment) {
         createIfNeeded(fragment)
-        subComponent!!.inject(fragment)
+        component!!.inject(fragment)
     }
 
     fun inject(fragment: LoginNameFragment) {
         createIfNeeded(fragment)
-        subComponent!!.inject(fragment)
+        component!!.inject(fragment)
     }
 
     fun inject(fragment: LoginPasswordFragment) {
         createIfNeeded(fragment)
-        subComponent!!.inject(fragment)
+        component!!.inject(fragment)
     }
 
     private fun createIfNeeded(fragment: Fragment) {
@@ -49,8 +45,6 @@ object LoginComponentHolder : ComponentHolder {
                                     LoginEntryPoint::class.java)
                             )
                             .build()
-
-                    subComponent = component!!.subComponent()
                 }
             }
         }

@@ -29,7 +29,7 @@ class LoginPasswordFragment : Fragment() {
     private val binding get() = _binding!!
 
     private val viewModel: LoginViewModel by navGraphViewModels(R.id.login_navigation_graph) {
-        Factory { LoginComponentHolder.subComponent!!.loginViewModel() }
+        Factory { LoginComponentHolder.component!!.loginViewModel() }
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
