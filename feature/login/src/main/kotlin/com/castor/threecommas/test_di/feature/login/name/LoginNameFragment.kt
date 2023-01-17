@@ -31,7 +31,7 @@ class LoginNameFragment : Fragment() {
     private val binding get() = _binding!!
 
     private val viewModel: LoginNameViewModel by viewModels {
-        Factory { LoginComponentHolder.component!!.loginNameViewModel() }
+        Factory { LoginComponentHolder.subComponent!!.loginNameViewModel() }
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {

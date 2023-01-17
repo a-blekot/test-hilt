@@ -7,28 +7,23 @@ import com.castor.threecommas.test_di.feature.login.LoginViewModel
 import com.castor.threecommas.test_di.feature.login.name.LoginNameFragment
 import com.castor.threecommas.test_di.feature.login.name.LoginNameViewModel
 import com.castor.threecommas.test_di.feature.login.password.LoginPasswordFragment
+import dagger.Component
 import dagger.Subcomponent
 import javax.inject.Inject
 
+@Component(dependencies = [LoginEntryPoint::class])
+interface LoginComponent {
+    fun subComponent(): LoginSubComponent
+}
 
 @[Subcomponent(modules = [LoginModule::class]) FeatureScope]
-interface LoginComponent {
+interface LoginSubComponent {
     fun inject(fragment: LoginFragment)
     fun inject(fragment: LoginNameFragment)
     fun inject(fragment: LoginPasswordFragment)
 
     fun loginViewModel(): LoginViewModel
     fun loginNameViewModel(): LoginNameViewModel
-
-//    @Subcomponent.Builder
-//    interface Builder {
-//        // The below module injection API is option if the
-//        // ChildModule doesn't take parameter.
-//        // But it is required if the Child module need to have
-//        // parameter
-//        fun childModule(module: LoginModule): Builder
-//        fun build(): LoginComponent
-//    }
 }
 
 @FeatureScope

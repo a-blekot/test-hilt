@@ -14,36 +14,43 @@ object LoginComponentHolder : ComponentHolder {
     var component: LoginComponent? = null
         private set
 
+    var subComponent: LoginSubComponent? = null
+        private set
+
     override fun reset() {
         component = null
+        subComponent = null
     }
 
     fun inject(fragment: LoginFragment) {
         createIfNeeded(fragment)
-        component!!.inject(fragment)
+        subComponent!!.inject(fragment)
     }
 
     fun inject(fragment: LoginNameFragment) {
         createIfNeeded(fragment)
-        component!!.inject(fragment)
+        subComponent!!.inject(fragment)
     }
 
     fun inject(fragment: LoginPasswordFragment) {
         createIfNeeded(fragment)
-        component!!.inject(fragment)
+        subComponent!!.inject(fragment)
     }
 
     private fun createIfNeeded(fragment: Fragment) {
         if (component == null) {
             synchronized(this) {
                 if (component == null) {
-                    component = EntryPointAccessors.fromActivity(
-                        fragment.requireActivity(),
-                        LoginEntryPoint::class.java
-                    )
-                        .loginComponent(LoginModule())
-//                        .childModule(LoginModule())
-//                        .build()
+                    component =
+                        DaggerLoginComponent.builder()
+                            .loginEntryPoint(
+                                EntryPointAccessors.fromActivity(
+                                    fragment.requireActivity(),
+                                    LoginEntryPoint::class.java)
+                            )
+                            .build()
+
+                    subComponent = component!!.subComponent()
                 }
             }
         }
